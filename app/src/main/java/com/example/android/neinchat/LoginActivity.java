@@ -61,6 +61,9 @@ public class LoginActivity extends AppCompatActivity {
                     mLoginProgress.setCanceledOnTouchOutside(false);
                     LoginUser(email,password);
                 }
+                else{
+                    Toast.makeText(LoginActivity.this,"Please enter all details.",Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.android.neinchat.SettingsActivity"
+    android:background="@color/colorPrimaryDark">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/anon"
+        android:id="@+id/settings_image" />
+
+    <TextView
+        android:id="@+id/settings_display_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/settings_image"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="Display Name"
+        android:textColor="#ffffff"
+        android:textSize="24dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/settings_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/settings_display_name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text="Hi there, I'm using NeinChat"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:id="@+id/settings_image_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/settings_status"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="75dp"
+        android:background="#ffffff"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="Change Image"
+        android:textColor="@color/colorPrimaryDark" />
+
+    <Button
+        android:id="@+id/settings_status_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/settings_image_btn"
+        android:layout_below="@+id/settings_image_btn"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/colorAccent"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:text="Change Status"
+        android:textColor="#ffffff" />
+
+</RelativeLayout>

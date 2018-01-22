@@ -1,6 +1,8 @@
 package com.example.android.neinchat;
 
 import android.content.Intent;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -14,6 +16,11 @@ public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
 
+    private ViewPager mViewPager;
+    private SectionsPagerAdapter mSectionsPagerAdapter;
+
+    private TabLayout mTabLayout;
+
     private android.support.v7.widget.Toolbar mToolbar;
 
     @Override
@@ -26,6 +33,15 @@ public class MainActivity extends AppCompatActivity {
         mToolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.main_page_toolbar);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle("NeinChat");
+
+        //Tabs
+        mViewPager = (ViewPager) findViewById(R.id.tabPager);
+        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+
+        mViewPager.setAdapter(mSectionsPagerAdapter);
+
+        mTabLayout = (TabLayout) findViewById(R.id.main_tab_pager);
+        mTabLayout.setupWithViewPager(mViewPager);
     }
 
     @Override
@@ -60,6 +76,11 @@ public class MainActivity extends AppCompatActivity {
             FirebaseAuth.getInstance().signOut();
         }
         sendToStart();
+        if (item.getItemId() == R.id.main_account_settingd_btn){
+            Intent accountSettingsIntent  = new Intent(MainActivity.this,SettingsActivity.class);
+            startActivity(accountSettingsIntent);
+            finish();
+        }
 
         return true;
     }
