@@ -30,10 +30,6 @@ class SectionsPagerAdapter extends FragmentPagerAdapter {
                 FriendsFragment friendsFragment = new FriendsFragment();
                 return friendsFragment;
 
-            case 3:
-                SelfDestructingMessageFragment selfDestructingMessageFragment = new SelfDestructingMessageFragment();
-                return selfDestructingMessageFragment;
-
             default:
                 return null;
         }
@@ -42,7 +38,7 @@ class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 4;
+        return 3;
     }
 
     public CharSequence getPageTitle(int position){
@@ -52,8 +48,6 @@ class SectionsPagerAdapter extends FragmentPagerAdapter {
             case 1:return "Chats";
 
             case 2:return "Friends";
-
-            case 3:return "Secure Messages";
 
             default:return null;
         }
