@@ -19,22 +19,20 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class StatusActivity extends AppCompatActivity {
 
-    /*private Toolbar mToolbar;
+    private Toolbar mToolbar;
 
     private TextInputLayout mStatus;
-    private Button mSaveabtn;
+    private Button mSaveButton;
 
     private DatabaseReference mStatusDatabase;
     private FirebaseUser mCurrentUser;
 
-    private ProgressDialog mProgres;*/
+    private ProgressDialog mProgress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_status);
-
-        /*mProgres = new ProgressDialog(this);
 
         mCurrentUser = FirebaseAuth.getInstance().getCurrentUser();
         String current_uid = mCurrentUser.getUid();
@@ -46,31 +44,35 @@ public class StatusActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Account Status");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        String status_value = getIntent().getStringExtra("status_value");
+
         mStatus = (TextInputLayout) findViewById(R.id.status_input);
-        mSaveabtn = (Button) findViewById(R.id.status_change_btn);
+        mSaveButton = (Button) findViewById(R.id.status_change_btn);
 
-        mSaveabtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mProgres = new ProgressDialog(StatusActivity.this);
-                mProgres.setTitle("Saving Changes");
-                mProgres.setMessage("Please wait while we save changes");
-                mProgres.show();
+        mStatus.getEditText().setText(status_value);
+         mSaveButton.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
 
-                String status = mStatus.getEditText().getText().toString();
-                mStatusDatabase.child("Status").setValue(status).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()){
-                            mProgres.dismiss();
-                        }
-                        else{
-                            Toast.makeText(getApplicationContext(),"There was some error in saving changes",Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-            }
-        });*/
+                 mProgress = new ProgressDialog(StatusActivity.this);
+                 mProgress.setTitle("Saving Changes");
+                 mProgress.setMessage("Please Wait...");
+                 mProgress.show();
 
+                 String status = mStatus.getEditText().getText().toString();
+                 mStatusDatabase.child("status").setValue(status).addOnCompleteListener(new OnCompleteListener<Void>() {
+                     @Override
+                     public void onComplete(@NonNull Task<Void> task) {
+                         if(task.isSuccessful()){
+                             mProgress.dismiss();
+                         }
+                         else{
+                             Toast.makeText(getApplicationContext(),"Some Error Occured",Toast.LENGTH_LONG).show();
+                         }
+                     }
+                 });
+
+             }
+         });
     }
 }
