@@ -96,7 +96,7 @@ public class RegisterActivity extends AppCompatActivity {
                             HashMap<String, String> userMap = new HashMap<>();
                             userMap.put("name", display_name);
                             userMap.put("status", "Hey there, I'm using NeinChat App");
-                            userMap.put("image","default");
+                            userMap.put("image","https://firebasestorage.googleapis.com/v0/b/neinchat-ec0fa.appspot.com/o/profile_images%2Fanon.png?alt=media&token=34a2f387-b641-4207-ac80-8844b48eb769");
                             userMap.put("thumb_image","default");
                             userMap.put("public key", "default");
 

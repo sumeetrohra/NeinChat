@@ -167,26 +167,4 @@ public class SettingsActivity extends AppCompatActivity {
             }
         }
     }
-
-    /*public static String random() {
-        Random generator = new Random();
-        StringBuilder randomStringBuilder = new StringBuilder();
-        int randomLength = generator.nextInt(10);
-        char tempChar;
-        for (int i = 0; i < randomLength; i++){
-            tempChar = (char) (generator.nextInt(96) + 32);
-            randomStringBuilder.append(tempChar);
-        }
-        return randomStringBuilder.toString();
-    }*/
-
-    @Override
-    public void onBackPressed()
-    {
-        super.onBackPressed();
-        Intent back = new Intent(SettingsActivity.this, MainActivity.class);
-        back.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(back);
-        finish();
-    }
 }
